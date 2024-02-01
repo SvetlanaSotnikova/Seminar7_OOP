@@ -1,4 +1,4 @@
-package Seminar7_HM.Logger;
+package Seminar7_HM.logger;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

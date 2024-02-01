@@ -1,4 +1,4 @@
-package Seminar7_HM.Logger;
+package Seminar7_HM.logger;
 
 public class Logger implements CalculatorLogger {
 

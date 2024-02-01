@@ -1,7 +1,7 @@
-package Seminar7_HM.Calculator;
+package Seminar7_HM.calculator;
 
-import Seminar7_HM.Logger.CalculatorLogger;
 import Seminar7_HM.impl.ComplexNumbers;
+import Seminar7_HM.logger.CalculatorLogger;
 
 public class ComplexCalculator implements ComplexOperations {
 

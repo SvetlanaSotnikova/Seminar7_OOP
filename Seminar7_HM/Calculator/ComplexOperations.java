@@ -1,4 +1,4 @@
-package Seminar7_HM.Calculator;
+package Seminar7_HM.calculator;
 
 import Seminar7_HM.impl.ComplexNumbers;
 

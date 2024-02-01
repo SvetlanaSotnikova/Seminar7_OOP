@@ -1,16 +1,15 @@
 package Seminar7_HM;
 
-import java.io.IOException;
+// import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import Seminar7_HM.Calculator.ComplexCalculator;
-// import Seminar7_HM.Calculator.ComplexOperations;
-import Seminar7_HM.Logger.CalculatorLogger;
-import Seminar7_HM.Logger.FileLogger;
+import Seminar7_HM.calculator.ComplexCalculator;
 import Seminar7_HM.impl.ComplexNumbers;
 import Seminar7_HM.impl.ComplexNumbersImpl;
+import Seminar7_HM.logger.CalculatorLogger;
+import Seminar7_HM.logger.FileLogger;
 
 public class Main {
     public static void main(String[] args) {
