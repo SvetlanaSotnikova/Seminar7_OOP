@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import Seminar7_HM.util.Operators;
+
 public class FileLogger implements CalculatorLogger {
     private PrintWriter writer;
 
@@ -38,7 +40,7 @@ public class FileLogger implements CalculatorLogger {
         }
     }
 
-    public static void writeFile(double num1, double  num2, String operation, String nameFile) {
+    public static void writeFile(double num1, double  num2, Operators operation, String nameFile) {
         try (FileWriter fw = new FileWriter(nameFile, true)) {
             fw.write("log: " + num1 + operation + num2 + "i;");
             fw.append('\n');

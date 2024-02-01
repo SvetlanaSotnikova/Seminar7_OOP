@@ -31,7 +31,7 @@ public class ComplexCalculator implements ComplexOperations {
             logger.log("Sum: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) + ("
                     + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                     + realSum + " + " + imaginarySum + "i");
-            FileLogger.writeFile(realSum, imaginarySum, " + ", "logHM.txt");
+            FileLogger.writeFile(realSum, imaginarySum, Operators.PLUS, "logHM.txt");
         }
 
         printResult(realSum, imaginarySum, Operators.PLUS);
@@ -48,7 +48,7 @@ public class ComplexCalculator implements ComplexOperations {
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                 + realPart + " + " + imaginaryPart + "i");
 
-        FileLogger.writeFile(realPart, imaginaryPart, " * ", "logHM.txt");
+        FileLogger.writeFile(realPart, imaginaryPart, Operators.MULTI, "logHM.txt");
 
         printResult(realPart, imaginaryPart, Operators.MULTI);
     }
@@ -70,7 +70,7 @@ public class ComplexCalculator implements ComplexOperations {
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = " + realPart + " + "
                 + imaginaryPart + "i");
 
-        FileLogger.writeFile(roundedRealPart, roundedImaginaryPart, " / ", "logHM.txt");
+        FileLogger.writeFile(roundedRealPart, roundedImaginaryPart, Operators.DIV, "logHM.txt");
 
         printResult(roundedRealPart, roundedImaginaryPart, Operators.DIV);
     }
