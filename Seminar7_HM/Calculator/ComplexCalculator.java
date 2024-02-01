@@ -12,6 +12,8 @@ public class ComplexCalculator implements ComplexOperations {
         this.logger = logger;
     }
 
+    // я добавила эти принты потому что на моем ноуте ничего в консоли не отображается, 
+    // хотя у ребят, которых я просила проверить все работает, можете сказать почему, я три часа с эти маялась :/
     public void printResultSum(double realPart, double imaginaryPart) {
         System.out.println("Result: " + realPart + " + " + imaginaryPart + "i");
     }
