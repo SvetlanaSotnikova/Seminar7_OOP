@@ -14,7 +14,7 @@ public class ComplexCalculator implements ComplexOperations {
     public void printResultSum(double realPart, double imaginaryPart) {
         System.out.println("Result: " + realPart + " + " + imaginaryPart + "i");
     }
-
+    
     public void printResultMultyply(double realPart, double imaginaryPart) {
         System.out.println("Result: " + realPart + " * " + imaginaryPart + "i");
     }

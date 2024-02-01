@@ -8,31 +8,26 @@ import java.io.PrintWriter;
 public class FileLogger implements CalculatorLogger {
     private PrintWriter writer;
 
-    public FileLogger(PrintWriter writer) {
-        this.writer = writer;
-    }
-
     public FileLogger(String filename) {
         try {
-            writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
+            this.writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            closeLogger();
         }
     }
 
     @Override
     public void log(String message) {
-        writer.println(message);
-        // writer.flush();
+        if (writer != null) {
+            writer.println(message);
+        } else {
+            System.err.println("Logger is not initialized.");
+        }
     }
 
     public void closeLogger() {
-        synchronized (this) {
-            if (writer != null) {
-                writer.close();
-            }
+        if (writer != null) {
+            writer.close();
         }
     }
 

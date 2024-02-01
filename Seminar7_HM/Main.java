@@ -1,6 +1,7 @@
 package Seminar7_HM;
 
 // import java.io.IOException;
+// import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -38,7 +39,6 @@ public class Main {
         CalculatorLogger logger = null;
         logger = new FileLogger("logHM.txt");
         return new ComplexCalculator(logger);
-
     }
 
     private static void perfOperation(View view, ComplexCalculator calculator,
