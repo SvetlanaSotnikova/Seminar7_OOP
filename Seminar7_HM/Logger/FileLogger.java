@@ -16,7 +16,7 @@ public class FileLogger implements CalculatorLogger {
         writer.println(message);
     }
 
-    public void close() {
+    public void closeLogger() {
         writer.close();
     }
 

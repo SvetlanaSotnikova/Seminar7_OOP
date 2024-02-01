@@ -16,31 +16,37 @@ public class Main {
     public static void main(String[] args) {
         View view = new View();
         ComplexCalculator calculator = createCalculator();
-        if (calculator != null) {
-            Map<Integer, Runnable> menuMap = createMenu(view, calculator);
-            boolean exit = false;
-            while (!exit) {
-                view.menu();
-                int choice = view.getUserChoice();
+        // if (calculator != null) {
+        Map<Integer, Runnable> menuMap = createMenu(view, calculator);
+        boolean exit = false;
+        while (!exit) {
+            view.menu();
+            int choice = view.getUserChoice();
 
-                Runnable action = menuMap.getOrDefault(choice, () -> view.displayMessage("something wrong :( please, try again!"));
-                action.run();
+            Runnable action = menuMap.getOrDefault(choice,
+                    () -> view.displayMessage("something wrong :( please, try again!"));
+            action.run();
 
-                if (choice == 0) {
-                    exit = true;
-                }
+            if (choice == 0) {
+                exit = true;
             }
         }
+
         view.closeScan();
     }
 
     private static ComplexCalculator createCalculator() {
+        CalculatorLogger logger = null;
         try {
-            CalculatorLogger logger = new FileLogger("log.txt");
+            logger = new FileLogger("logHM.txt");
             return new ComplexCalculator(logger);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            if (logger != null) {
+                logger.closeLogger();
+            }
         }
     }
 
@@ -51,7 +57,7 @@ public class Main {
         double imaginaryPart1 = view.getImaginaryPart();
 
         // второе число
-        double realPart2 = view.getRealPart(); 
+        double realPart2 = view.getRealPart();
         double imaginaryPart2 = view.getImaginaryPart();
 
         ComplexNumbersImpl num1 = new ComplexNumbersImpl(realPart1, imaginaryPart1);

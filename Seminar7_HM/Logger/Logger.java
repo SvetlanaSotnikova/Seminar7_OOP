@@ -7,4 +7,9 @@ public class Logger implements CalculatorLogger {
         System.out.println("Log: " + message);
     }
 
+    @Override
+    public void closeLogger() {
+       System.out.println("Closing logger...");
+    }
+
 }
