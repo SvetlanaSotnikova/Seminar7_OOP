@@ -1,9 +1,9 @@
 package Seminar7_HM.util;
 
 public enum Operators {
-    PLUS("+"),
-    MULTI("*"),
-    DIV("/");
+    PLUS(" + "),
+    MULTI(" * "),
+    DIV(" / ");
 
     private String operator;
 

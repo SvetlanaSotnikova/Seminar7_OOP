@@ -3,6 +3,7 @@ package Seminar7_HM.calculator;
 import Seminar7_HM.impl.ComplexNumbers;
 import Seminar7_HM.logger.FileLogger;
 import Seminar7_HM.logger.Logger;
+import Seminar7_HM.util.Operators;
 
 public class ComplexCalculator implements ComplexOperations {
 
@@ -12,18 +13,12 @@ public class ComplexCalculator implements ComplexOperations {
         this.logger = logger;
     }
 
-    // я добавила эти принты потому что на моем ноуте ничего в консоли не отображается, 
-    // хотя у ребят, которых я просила проверить все работает, можете сказать почему, я три часа с эти маялась :/
-    public void printResultSum(double realPart, double imaginaryPart) {
-        System.out.println("Result: " + realPart + " + " + imaginaryPart + "i");
-    }
-
-    public void printResultMultyply(double realPart, double imaginaryPart) {
-        System.out.println("Result: " + realPart + " * " + imaginaryPart + "i");
-    }
-
-    public void printResultDiv(double realPart, double imaginaryPart) {
-        System.out.println("Result: " + realPart + " / " + imaginaryPart + "i");
+    // я добавила эти принты потому что на моем ноуте ничего в консоли не
+    // отображается,
+    // хотя у ребят, которых я просила проверить все работает, можете сказать
+    // почему, я три часа с эти маялась :/
+    public void printResult(double realPart, double imaginaryPart, Operators op) {
+        System.out.println("Result: " + realPart + op.getOperator() + imaginaryPart + "i");
     }
 
     @Override
@@ -39,7 +34,7 @@ public class ComplexCalculator implements ComplexOperations {
             FileLogger.writeFile(realSum, imaginarySum, " + ", "logHM.txt");
         }
 
-        printResultSum(realSum, imaginarySum);
+        printResult(realSum, imaginarySum, Operators.PLUS);
     }
 
     @Override
@@ -55,7 +50,7 @@ public class ComplexCalculator implements ComplexOperations {
 
         FileLogger.writeFile(realPart, imaginaryPart, " * ", "logHM.txt");
 
-        printResultMultyply(realPart, imaginaryPart);
+        printResult(realPart, imaginaryPart, Operators.MULTI);
     }
 
     @Override
@@ -77,7 +72,7 @@ public class ComplexCalculator implements ComplexOperations {
 
         FileLogger.writeFile(roundedRealPart, roundedImaginaryPart, " / ", "logHM.txt");
 
-        printResultDiv(roundedRealPart, roundedImaginaryPart);
+        printResult(roundedRealPart, roundedImaginaryPart, Operators.DIV);
     }
 
 }
