@@ -12,4 +12,9 @@ public class Logger implements CalculatorLogger {
        System.out.println("Closing logger...");
     }
 
+    @Override
+    public String toString() {
+        return "Logger []";
+    }
+
 }

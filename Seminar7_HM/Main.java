@@ -36,14 +36,9 @@ public class Main {
 
     private static ComplexCalculator createCalculator() {
         CalculatorLogger logger = null;
-        try {
-            logger = new FileLogger("logHM.txt");
-            return new ComplexCalculator(logger);
-        } finally {
-            if (logger != null) {
-                logger.closeLogger();
-            }
-        }
+        logger = new FileLogger("logHM.txt");
+        return new ComplexCalculator(logger);
+
     }
 
     private static void perfOperation(View view, ComplexCalculator calculator,
