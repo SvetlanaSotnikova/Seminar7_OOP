@@ -1,20 +1,21 @@
 package Seminar7_HM.calculator;
 
 import Seminar7_HM.impl.ComplexNumbers;
-import Seminar7_HM.logger.CalculatorLogger;
+// import Seminar7_HM.logger.CalculatorLogger;
+import Seminar7_HM.logger.Logger;
 
 public class ComplexCalculator implements ComplexOperations {
 
-    private CalculatorLogger logger;
+    private Logger logger;
 
-    public ComplexCalculator(CalculatorLogger logger) {
+    public ComplexCalculator(Logger logger) {
         this.logger = logger;
     }
 
     public void printResultSum(double realPart, double imaginaryPart) {
         System.out.println("Result: " + realPart + " + " + imaginaryPart + "i");
     }
-    
+
     public void printResultMultyply(double realPart, double imaginaryPart) {
         System.out.println("Result: " + realPart + " * " + imaginaryPart + "i");
     }
@@ -30,12 +31,12 @@ public class ComplexCalculator implements ComplexOperations {
 
         // logger
         if (logger != null) {
-        logger.log("Sum: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) + ("
-                + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
-                + realSum + " + " + imaginarySum + "i");
-        } else {
-            System.out.println("else :(");
-        }
+            logger.log("Sum: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) + ("
+                    + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
+                    + realSum + " + " + imaginarySum + "i");
+        } 
+
+        Logger.writeFile(realSum, imaginarySum, "logHM.txt");
 
         printResultSum(realSum, imaginarySum);
     }
@@ -50,6 +51,8 @@ public class ComplexCalculator implements ComplexOperations {
         logger.log("Multyply: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) * ("
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                 + realPart + " + " + imaginaryPart + "i");
+
+        Logger.writeFile(realPart, imaginaryPart, "logHM.txt");
 
         printResultMultyply(realPart, imaginaryPart);
     }
@@ -66,6 +69,8 @@ public class ComplexCalculator implements ComplexOperations {
         logger.log("Div: (" + a.getRealPart() + " + " + a.getImaginaryPart() + "i) / ("
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = " + realPart + " + "
                 + imaginaryPart + "i");
+
+        Logger.writeFile(realPart, imaginaryPart, "logHM.txt");
 
         printResultDiv(realPart, imaginaryPart);
     }

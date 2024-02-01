@@ -8,11 +8,18 @@ import java.io.PrintWriter;
 public class FileLogger implements CalculatorLogger {
     private PrintWriter writer;
 
+    public FileLogger(PrintWriter writer) {
+        this.writer = writer;
+    }
+
+
     public FileLogger(String filename) {
         try {
             this.writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            closeLogger();
         }
     }
 

@@ -42,5 +42,4 @@ public class View {
     public void closeScan() {
         scanner.close();
     }
-
 }

@@ -1,10 +1,13 @@
 package Seminar7_HM.logger;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Logger implements CalculatorLogger {
 
-    private CalculatorLogger logger;
+    private Logger logger;
 
-    public Logger(CalculatorLogger logger) {
+    public void ComplexCalculator(Logger logger) {
         this.logger = logger;
     }
 
@@ -13,7 +16,7 @@ public class Logger implements CalculatorLogger {
         if (logger != null) {
             logger.log(message);
         } else {
-            System.out.println("Logger is not initialized!");
+            // System.out.println("Logger is not initialized!");
         }
     }
 
@@ -24,4 +27,20 @@ public class Logger implements CalculatorLogger {
             logger.closeLogger();
         }
     }
+
+     @Override
+    public String toString() {
+        return "Logger []";
+    }
+
+    public static void writeFile(double num1, double  num2, String nameFile) {
+        try (FileWriter fw = new FileWriter(nameFile, true)) {
+            fw.write("log: " + num1 + " + " + num2 + "i;");
+            fw.append('\n');
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }
