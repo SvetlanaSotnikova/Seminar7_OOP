@@ -29,9 +29,13 @@ public class ComplexCalculator implements ComplexOperations {
         double imaginarySum = a.getImaginaryPart() + b.getImaginaryPart();
 
         // logger
+        if (logger != null) {
         logger.log("Sum: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) + ("
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                 + realSum + " + " + imaginarySum + "i");
+        } else {
+            System.out.println("else :(");
+        }
 
         printResultSum(realSum, imaginarySum);
     }

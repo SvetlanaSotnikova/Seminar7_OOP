@@ -1,5 +1,6 @@
 package Seminar7_HM.Logger;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,17 +8,26 @@ import java.io.PrintWriter;
 public class FileLogger implements CalculatorLogger {
     private PrintWriter writer;
 
-    public FileLogger(String filename) throws IOException {
-        writer = new PrintWriter(new FileWriter(filename, true));
+    public FileLogger(String filename) {
+        try {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void log(String message) {
         writer.println(message);
+        // writer.flush();
     }
 
     public void closeLogger() {
-        writer.close();
+        synchronized (this) {
+            if (writer != null) {
+                writer.close();
+            }
+        }
     }
 
 }

@@ -40,9 +40,6 @@ public class Main {
         try {
             logger = new FileLogger("logHM.txt");
             return new ComplexCalculator(logger);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         } finally {
             if (logger != null) {
                 logger.closeLogger();
