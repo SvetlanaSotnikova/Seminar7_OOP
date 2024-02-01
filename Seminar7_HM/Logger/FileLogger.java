@@ -38,4 +38,14 @@ public class FileLogger implements CalculatorLogger {
         }
     }
 
+    public static void writeFile(double num1, double  num2, String operation, String nameFile) {
+        try (FileWriter fw = new FileWriter(nameFile, true)) {
+            fw.write("log: " + num1 + operation + num2 + "i;");
+            fw.append('\n');
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }

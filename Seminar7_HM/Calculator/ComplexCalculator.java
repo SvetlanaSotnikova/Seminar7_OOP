@@ -1,7 +1,7 @@
 package Seminar7_HM.calculator;
 
 import Seminar7_HM.impl.ComplexNumbers;
-// import Seminar7_HM.logger.CalculatorLogger;
+import Seminar7_HM.logger.FileLogger;
 import Seminar7_HM.logger.Logger;
 
 public class ComplexCalculator implements ComplexOperations {
@@ -34,9 +34,8 @@ public class ComplexCalculator implements ComplexOperations {
             logger.log("Sum: ( " + a.getRealPart() + " + " + a.getImaginaryPart() + "i) + ("
                     + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                     + realSum + " + " + imaginarySum + "i");
-        } 
-
-        Logger.writeFile(realSum, imaginarySum, "logHM.txt");
+            FileLogger.writeFile(realSum, imaginarySum, " + ", "logHM.txt");
+        }
 
         printResultSum(realSum, imaginarySum);
     }
@@ -52,7 +51,7 @@ public class ComplexCalculator implements ComplexOperations {
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = "
                 + realPart + " + " + imaginaryPart + "i");
 
-        Logger.writeFile(realPart, imaginaryPart, "logHM.txt");
+        FileLogger.writeFile(realPart, imaginaryPart, " * ", "logHM.txt");
 
         printResultMultyply(realPart, imaginaryPart);
     }
@@ -65,14 +64,18 @@ public class ComplexCalculator implements ComplexOperations {
                 + a.getImaginaryPart() * b.getImaginaryPart()) / denominator;
         double imaginaryPart = (a.getImaginaryPart() * b.getRealPart()
                 - a.getRealPart() * b.getImaginaryPart()) / denominator;
+
+        double roundedRealPart = Math.round(realPart * 100.0) / 100.0;
+        double roundedImaginaryPart = Math.round(imaginaryPart * 100.0) / 100.0;
+
         // logger
         logger.log("Div: (" + a.getRealPart() + " + " + a.getImaginaryPart() + "i) / ("
                 + b.getRealPart() + " + " + b.getImaginaryPart() + "i) = " + realPart + " + "
                 + imaginaryPart + "i");
 
-        Logger.writeFile(realPart, imaginaryPart, "logHM.txt");
+        FileLogger.writeFile(roundedRealPart, roundedImaginaryPart, " / ", "logHM.txt");
 
-        printResultDiv(realPart, imaginaryPart);
+        printResultDiv(roundedRealPart, roundedImaginaryPart);
     }
 
 }
